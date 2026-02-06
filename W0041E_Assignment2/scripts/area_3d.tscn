@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqigfrabhfqfr"]
+
+[ext_resource type="Script" uid="uid://lu7m8m7ncluk" path="res://Area3d.cs" id="1_vkxs1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vjcsv"]
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_vkxs1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_vjcsv")
+
+[node name="Node3D" type="Node3D" parent="."]
