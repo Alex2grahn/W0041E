@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://u67cfn05vlgw"]
+
+[ext_resource type="Script" uid="uid://bwi7nj5pvv5kc" path="res://Scripts/Lab2/HintArea.cs" id="1_0qie3"]
+[ext_resource type="Script" uid="uid://cwvokxcf5dks8" path="res://Scripts/Lab1/PlayerController.cs" id="1_2b8f0"]
+[ext_resource type="Script" uid="uid://b0s31bfnbxegf" path="res://Scripts/Lab2/CameraRig.cs" id="2_2b8f0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pk8yy"]
+radius = 0.35
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3mb1w"]
+radius = 0.35
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2b8f0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xywk"]
+size = Vector3(6, 2, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pk8yy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3mb1w"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xywk"]
+size = Vector3(30, -1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qd7gg"]
+size = Vector3(2, 3, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dycqc"]
+size = Vector3(2, 3, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4xqc"]
+size = Vector3(2, 3, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f121x"]
+size = Vector3(2, 3, 12)
+
+[node name="Lab2" type="Node3D" unique_id=1626397347]
+
+[node name="World" type="Node3D" parent="." unique_id=366278528]
+
+[node name="Player" type="CharacterBody3D" parent="World" unique_id=2144337665 node_paths=PackedStringArray("Gfx", "Camera", "CollisionLower", "CollisionUpper") groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("1_2b8f0")
+Gfx = NodePath("Gfx")
+Camera = NodePath("../../CameraRig/CameraPivot/Camera3D")
+CollisionLower = NodePath("CollisionLower")
+CollisionUpper = NodePath("CollisionUpper")
+
+[node name="CollisionLower" type="CollisionShape3D" parent="World/Player" unique_id=639494474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("SphereShape3D_pk8yy")
+
+[node name="CollisionUpper" type="CollisionShape3D" parent="World/Player" unique_id=844062009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0066537857, 0.9499996, 0.013553619)
+shape = SubResource("SphereShape3D_3mb1w")
+
+[node name="Gfx" type="Node3D" parent="World/Player" unique_id=1544964235]
+
+[node name="Mesh" type="MeshInstance3D" parent="World/Player/Gfx" unique_id=1844189710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+mesh = SubResource("CapsuleMesh_2b8f0")
+
+[node name="RayCenter" type="RayCast3D" parent="World/Player" unique_id=1103686806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="RayLeft" type="RayCast3D" parent="World/Player" unique_id=828389852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1, 0)
+target_position = Vector3(-0.25, -1, 0)
+
+[node name="RayRight" type="RayCast3D" parent="World/Player" unique_id=1682602280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, 0)
+target_position = Vector3(0.25, -1, 0)
+
+[node name="HintAreas" type="Node3D" parent="World" unique_id=2133188566]
+
+[node name="HintAreas_A" type="Area3D" parent="World/HintAreas" unique_id=644567390 node_paths=PackedStringArray("HintCamPos", "HintLookAt")]
+script = ExtResource("1_0qie3")
+HintCamPos = NodePath("HintCamPos")
+HintLookAt = NodePath("HintLookAt")
+
+[node name="Shape" type="CollisionShape3D" parent="World/HintAreas/HintAreas_A" unique_id=1584089952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
+shape = SubResource("BoxShape3D_0xywk")
+
+[node name="HintCamPos" type="Marker3D" parent="World/HintAreas/HintAreas_A" unique_id=400976419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 12)
+
+[node name="HintLookAt" type="Marker3D" parent="World/HintAreas/HintAreas_A" unique_id=1450178722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
+
+[node name="HintAreas_B" type="Area3D" parent="World/HintAreas" unique_id=1577153617]
+
+[node name="Shape" type="CollisionShape3D" parent="World/HintAreas/HintAreas_B" unique_id=482550207]
+shape = SubResource("BoxShape3D_pk8yy")
+
+[node name="HintCamPos" type="Marker3D" parent="World/HintAreas/HintAreas_B" unique_id=81626136]
+
+[node name="HintLookAt" type="Marker3D" parent="World/HintAreas/HintAreas_B" unique_id=610202559]
+
+[node name="Graound" type="StaticBody3D" parent="World" unique_id=71480165]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Graound" unique_id=1672200615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_3mb1w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Graound" unique_id=1037045521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005256653, -0.46419716, -0.025615692)
+mesh = SubResource("BoxMesh_0xywk")
+
+[node name="Walls" type="Node3D" parent="World" unique_id=231441386]
+
+[node name="Wall_A" type="StaticBody3D" parent="World/Walls" unique_id=674742567]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Walls/Wall_A" unique_id=723450382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 0)
+shape = SubResource("BoxShape3D_qd7gg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Walls/Wall_A" unique_id=183866526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 0)
+mesh = SubResource("BoxMesh_dycqc")
+
+[node name="Wall_B" type="StaticBody3D" parent="World/Walls" unique_id=1022941208]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Walls/Wall_B" unique_id=670613629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, 0)
+shape = SubResource("BoxShape3D_y4xqc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Walls/Wall_B" unique_id=1334210900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, 0)
+mesh = SubResource("BoxMesh_f121x")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=196683991 node_paths=PackedStringArray("Target")]
+script = ExtResource("2_2b8f0")
+Target = NodePath("../World/Player")
+
+[node name="CameraPivot" type="Node3D" parent="CameraRig" unique_id=500392126]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/CameraPivot" unique_id=1849045338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+current = true
+fov = 65.0
+far = 200.0
+
+[node name="SpringArm" type="SpringArm3D" parent="CameraRig/CameraPivot" unique_id=434059922]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=19718129]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1431124046]
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.7071068, -0.7071068, -0.5, 0.5, 0, 7.819518, 0)

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://boq2fjfm1538d"]
+
+[ext_resource type="Script" uid="uid://cy4m632hgci3g" path="res://Scripts/Common/MainMenu.cs" id="1_28flt"]
+
+[node name="MainMenu" type="Control" unique_id=5158263]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -6.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2048406389]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=979790290]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=372474326]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "W0041E – Game Feel Labs"
+horizontal_alignment = 1
+
+[node name="ButtonLab1" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1807479642]
+layout_mode = 2
+text = "Lab 1 – Input & Response"
+
+[node name="ButtonLab2" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1661148035]
+layout_mode = 2
+text = "Lab 2 – Context & Camera"
+
+[node name="ButtonLab3" type="Button" parent="CenterContainer/VBoxContainer" unique_id=893428210]
+layout_mode = 2
+text = "Lab 3 – Polish & Metaphor"
+
+[node name="ButtonQuit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1291633304]
+layout_mode = 2
+text = "Quit"

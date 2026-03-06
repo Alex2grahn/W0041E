@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://wnc7ndxm4s8l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_33rus"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gk27s"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gk27s"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc6ws"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gc2ep"]
+size = Vector3(6, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0oj2"]
+size = Vector3(6, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lc6ws"]
+size = Vector3(6, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gc2ep"]
+size = Vector3(6, 0.5, 2)
+
+[node name="Level" type="Node3D" unique_id=451618399]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=845483356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1184329799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00069236755, -0.0010647774, 0)
+mesh = SubResource("BoxMesh_33rus")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=349333913]
+shape = SubResource("BoxShape3D_gk27s")
+
+[node name="Ledge" type="StaticBody3D" parent="." unique_id=814358977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.563511, 0.545372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ledge" unique_id=388047469]
+mesh = SubResource("BoxMesh_gk27s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ledge" unique_id=2058593666]
+shape = SubResource("BoxShape3D_lc6ws")
+
+[node name="Tunnel" type="StaticBody3D" parent="." unique_id=302609565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1977181, -0.23277664)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tunnel" unique_id=1209087765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75913906, -6)
+mesh = SubResource("BoxMesh_gc2ep")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnel" unique_id=1134899657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+shape = SubResource("BoxShape3D_e0oj2")
+
+[node name="Ramp" type="StaticBody3D" parent="." unique_id=1249115508]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp" unique_id=102410832]
+transform = Transform3D(-4.1572e-08, 1.3507562e-08, 1, 0.309017, 0.95105654, 0, -0.95105654, 0.309017, -4.371139e-08, 0.025950193, 1.2607567, -2.4206746)
+mesh = SubResource("BoxMesh_lc6ws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp" unique_id=441922153]
+transform = Transform3D(-4.1572e-08, 1.3507562e-08, 1, 0.309017, 0.95105654, 0, -0.95105654, 0.309017, -4.371139e-08, 0.026, 1.261, -2.42)
+shape = SubResource("BoxShape3D_gc2ep")
