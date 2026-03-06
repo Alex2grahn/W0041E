@@ -40,7 +40,7 @@ size = Vector3(2, 3, 12)
 [node name="World" type="Node3D" parent="." unique_id=366278528]
 
 [node name="Player" type="CharacterBody3D" parent="World" unique_id=2144337665 node_paths=PackedStringArray("Gfx", "Camera", "CollisionLower", "CollisionUpper") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 script = ExtResource("1_2b8f0")
 Gfx = NodePath("Gfx")
 Camera = NodePath("../../CameraRig/CameraPivot/Camera3D")
